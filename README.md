@@ -1,7 +1,7 @@
-# Home Services Project Backend
+# Scam RX Project Backend
 
 ### 📖 Overview  
-This repository powers the backend for the **Home Services Provider System** platform — a complete ** Local Service Provider finder and Giveing Review**.  
+This repository powers the backend for the **Scam RX Project Backend System** platform — a complete ** Scam finder **.  
 
 Built with **Node.js**, **Express**, and **MongoDB**, it provides APIs 
 
@@ -24,8 +24,8 @@ It supports user roles such as **Admin**, **Service Provider**, and **User**.
 ### Clone the repository and move the folder
 
 ```bash
-git clone https://github.com/mdemong87/home-service-project-backend.git
-cd home-service-project-backend
+git clone https://github.com/sardarit-bd/rxscam-backend.git
+cd rxscam-backend
 ```
 
 

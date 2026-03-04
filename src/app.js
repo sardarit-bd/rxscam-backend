@@ -15,6 +15,7 @@ import productRoutes from './routes/productroute/productRoute.js';
 import reviewRoutes from './routes/review/reviewRoutes.js';
 import userRoutes from './routes/userroute/userRoutes.js';
 import "./workers/product.worker.js";
+import emailBreachRoutes from "./routes/emailBreachRoutes/emailBreachRoutes.js";
 
 
 
@@ -90,6 +91,22 @@ app.use("/", adminRoutes);
 
 /********** Admin Routes Define Here *********/
 app.use("/", couponRoutes);
+
+
+
+
+
+
+
+
+/****************  Email Breach Checker  *********************/
+app.use("/", emailBreachRoutes);
+
+
+
+
+
+
 
 
 
