@@ -9,13 +9,14 @@ import adminRoutes from './routes/adminRoutes/adminRoutes.js';
 import authRoutes from './routes/authroute/authUserRoutes.js';
 import contactRoutes from "./routes/contactRoutes/contactRoutes.js";
 import couponRoutes from "./routes/couponRoutes/couponRoutes.js";
+import emailBreachRoutes from "./routes/emailBreachRoutes/emailBreachRoutes.js";
 import healthRoutes from "./routes/health/healthRoute.js";
 import orderRoute from "./routes/orderRoute/orderRoute.js";
 import productRoutes from './routes/productroute/productRoute.js';
 import reviewRoutes from './routes/review/reviewRoutes.js';
+import urlScannerRoutes from "./routes/urlScanner/urlScannerRoutes.js";
 import userRoutes from './routes/userroute/userRoutes.js';
 import "./workers/product.worker.js";
-import emailBreachRoutes from "./routes/emailBreachRoutes/emailBreachRoutes.js";
 
 
 
@@ -104,6 +105,8 @@ app.use("/", emailBreachRoutes);
 
 
 
+/****************  URL Checker  *********************/
+app.use("/", urlScannerRoutes);
 
 
 
