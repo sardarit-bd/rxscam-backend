@@ -13,7 +13,7 @@ const emailBreachCcheck = async (req, res) => {
 
 
         // Validate body data using Joi schema
-        const { email } = req.body;
+        const { email, consent } = req.body;
         const ip = req.ip;
 
 
@@ -41,25 +41,7 @@ const emailBreachCcheck = async (req, res) => {
         })
 
 
-
-        // HIBP API error check
-        if (!rs.ok) {
-            res.status(201).json({
-                success: false,
-                message: "HIBP API error",
-                status: rs.status,
-                result: []
-            });
-        }
-
-
-
-
-
-
-
         if (rs.status === 404) {
-
 
 
             const savebleBreachData = {
@@ -71,7 +53,7 @@ const emailBreachCcheck = async (req, res) => {
                 breach_summary: {
                     breach_count: 0,
                     is_breached: false,
-                    most_react_breach: "",
+                    most_recent_breach: "",
                     most_sessitive_Data: [],
                     risk_tier: "none"
                 },
@@ -82,7 +64,7 @@ const emailBreachCcheck = async (req, res) => {
             const breach = await EmailBreach.create(savebleBreachData);
 
             // No breach found (this is NOT an error)
-            res.status(201).json({
+            return res.status(201).json({
                 success: true,
                 message: "No breach found for this email",
                 data: breach
@@ -130,7 +112,7 @@ const emailBreachCcheck = async (req, res) => {
             breach_summary: {
                 breach_count: breachlength,
                 is_breached: true,
-                most_react_breach: getMostRecentBreachDate(result),
+                most_recent_breach: getMostRecentBreachDate(result),
                 most_sessitive_Data: sensitiveData,
                 risk_tier: risk
             },
@@ -142,7 +124,7 @@ const emailBreachCcheck = async (req, res) => {
 
 
         // Send success response
-        res.status(201).json({
+        return res.status(201).json({
             success: true,
             message: "Email breach checked successfully",
             data: breach

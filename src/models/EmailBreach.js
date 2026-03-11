@@ -13,9 +13,8 @@ const beach_schema = new mongoose.Schema({
         required: true,
         default: false
     },
-    most_react_breach: {
+    most_recent_breach: {
         type: String,
-        required: true,
         trim: true
     },
     most_sessitive_Data: {
